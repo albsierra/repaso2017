@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlDS"
+  },
+  "AccessToken": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "CoffeeShop": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Review": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Reviewer": {
+    "dataSource": "mysqlDS",
+    "public": true
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "name": "CoffeeShop",
+  "plural": "CoffeeShops",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "status": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "status",
+          "type": "string",
+          "root": true,
+          "description": "Mensaje de apertura o cierra"
+        }
+      ],
+      "description": "Conocer si las cafeterías están abiertas",
+      "http": [
+        {
+          "path": "/status",
+          "verb": "get"
+        }
+      ]
+    },
+    "getName": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "number",
+          "required": true,
+          "description": "Identificador de la cafetería",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "name",
+          "type": "string",
+          "root": false,
+          "description": "Nombre de la cafetería"
+        }
+      ],
+      "description": "Mostrar el nombre de una cafetería",
+      "http": [
+        {
+          "path": "/getname",
+          "verb": "get"
+        }
+      ]
+    },
+    "enCiudad": {
+      "accepts": [
+        {
+          "arg": "ciudad",
+          "type": "string",
+          "required": true,
+          "description": "Nombre de la ciudad",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "cafes",
+          "type": "array",
+          "root": true,
+          "description": "El array con el nombre de las cafeterías"
+        }
+      ],
+      "description": "Cafeterías en una ciudad",
+      "http": [
+        {
+          "path": "/enCiudad",
+          "verb": "get"
+        }
+      ]
+    },
+    "prototype.getCity": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "ciudad",
+          "type": "string",
+          "root": false,
+          "description": "Ciudad en la que se encuentra la cafetería"
+        }
+      ],
+      "description": "Devuelve la ciudad de la cafetería",
+      "http": [
+        {
+          "path": "/getCity",
+          "verb": "get"
+        }
+      ]
+    },
+    "competencia": {
+      "accepts": [
+        {
+          "arg": "nombre",
+          "type": "string",
+          "required": true,
+          "description": "El nombre de la cafetería de la que queremos saber su competencia",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "cafeterias",
+          "type": "array",
+          "root": true,
+          "description": "Las cafeterías que están en la misma ciudad"
+        }
+      ],
+      "description": "Buscar todas las cafeterías que están en la misma ciudad que una dada",
+      "http": [
+        {
+          "path": "/competencia",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
