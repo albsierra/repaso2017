@@ -12,7 +12,8 @@ angular
         include: [
           'coffeeShop',
           'reviewer'
-        ]
+        ],
+        order: 'date DESC'
       }
     });
   }])

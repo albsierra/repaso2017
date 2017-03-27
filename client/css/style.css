@@ -48,6 +48,7 @@ p {
 /*header*/
 body > header {
   border-bottom:1px solid #ccc;
+  background-color: coffee;
 }
 body > header h1 {
   font-size:2rem;
